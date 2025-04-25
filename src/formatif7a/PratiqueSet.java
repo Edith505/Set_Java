@@ -8,14 +8,16 @@ public class PratiqueSet {
 
     public PratiqueSet() {
         //TODO 1 L'attribut voyelle doit contenir un set avec toutes les voyelles (minusucles et majuscules)
-        //this.voyelles = ???;
+        this.voyelles = new HashSet<> (Arrays.asList('a','e','i','o','u','y','A','E','I','O','U','Y'));
 
     }
 
     private Set<Character> convertToCharSet(String phrase) {
         Set<Character> retSet = new HashSet<>();
         //TODO 2 en utilisant la méthode de String toCharArray, convertissez à l'aide d'une boulce la chaine de caractères en Set de char
-
+        for (char c : phrase.toCharArray()) {
+            retSet.add(c);
+        }
         return retSet;
     }
 
@@ -29,7 +31,7 @@ public class PratiqueSet {
         Set<Character> retSet = new HashSet<>(phrase);
 
         //TODO 4 On ne conserve que les lettres qui sont dans l'ensemble de voyelles
-
+        retSet.retainAll(voyelles);
 
         //On retourne le nombre de lettres trouvées.
         return retSet.size();
@@ -45,7 +47,7 @@ public class PratiqueSet {
         Set<Character> retSet = new HashSet<>(phrase);
 
         //TODO 5 On ne conserve que les lettres qui sont dans l'ensemble de consonnes
-
+        retSet.removeAll(voyelles);
 
         //On retourne le nombre de lettres trouvées.
         return retSet.size();
